@@ -62,6 +62,10 @@ fun main() {
         "${it.name} - $${it.price}"
     }
 
+    val softBakedCookies = cookies.filter {
+        it.softBaked
+    }
+
     cookies.forEach {
         println("Menu Item: ${it.name}")
     }
@@ -69,5 +73,10 @@ fun main() {
     println("\nFULL MENU")
     fullMenu.forEach {
         println(it)
+    }
+
+    println("\nSOFT BAKED COOKIES")
+    softBakedCookies.forEach {
+        println("${it.name} - $${it.price}")
     }
 }
