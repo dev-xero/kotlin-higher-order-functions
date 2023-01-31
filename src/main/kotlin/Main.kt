@@ -70,6 +70,14 @@ fun main() {
 
     val crunchyCookies = groupMenu[false] ?: listOf()  // DEFAULTS TO AN EMPTY LIST IF NULL
 
+    val cookiesSortedByPrice = cookies.sortedBy {
+        it.price
+    }
+
+    val cookiesSortedByName = cookies.sortedBy {
+        it.name
+    }
+
     val totalPrice = cookies.fold(0.0) {
         total, cookie -> total + cookie.price
     }
@@ -91,6 +99,16 @@ fun main() {
     println("\nCRUNCHY COOKIES")
     crunchyCookies.forEach {
         println("${it.name} - $${it.price}")
+    }
+
+    println("\nCOOKIES SORTED BY PRICE")
+    cookiesSortedByPrice.forEach {
+        println("${it.name} - ${it.price}")
+    }
+
+    println("\nCOOKIES SORTED BY NAME")
+    cookiesSortedByName.forEach {
+        println("${it.name} - ${it.price}")
     }
 
     println("\nTOTAL PRICE: $$totalPrice")
