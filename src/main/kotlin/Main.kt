@@ -66,6 +66,10 @@ fun main() {
         it.softBaked
     }
 
+    val groupMenu = cookies.groupBy { it.softBaked }
+
+    val crunchyCookies = groupMenu[false] ?: listOf()  // DEFAULTS TO AN EMPTY LIST IF NULL
+
     cookies.forEach {
         println("Menu Item: ${it.name}")
     }
@@ -77,6 +81,11 @@ fun main() {
 
     println("\nSOFT BAKED COOKIES")
     softBakedCookies.forEach {
+        println("${it.name} - $${it.price}")
+    }
+
+    println("\nCRUNCHY COOKIES")
+    crunchyCookies.forEach {
         println("${it.name} - $${it.price}")
     }
 }
